@@ -7,7 +7,7 @@ This queue structure is useful for logic require atomic operations.
 # Usage
 Instantiate using default constructor
 ```
-  let queue = new ObservableQueue();
+  this.queue = new ObservableQueue();
  ```
  
 Add work item using the .add() method. 
