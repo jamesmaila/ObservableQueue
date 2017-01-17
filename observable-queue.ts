@@ -3,9 +3,11 @@ import { Observable } from 'rxjs/Observable';
 export class ObservableQueue {
 
 	private queue: any[];
-
-	constructor() {
+	private autoStart: boolean;
+	
+	constructor(autoStart = true) {
 		this.queue = [];
+		this.autoStart = autoStart;
 	}
 
 	/**
@@ -15,7 +17,7 @@ export class ObservableQueue {
 	 * @param {*} successAction
 	 * @param {*} failureAction
 	 */
-	public add(observable: Observable<any>, successAction: any, failureAction: any, autoStart = true): void {
+	public add(observable: Observable<any>, successAction: any, failureAction: any): void {
 		this.queue.push({
 			observable: observable,
 			successAction: successAction,
@@ -23,7 +25,7 @@ export class ObservableQueue {
 		});
 
 		// If this is the only work item, execute it right away
-		if (this.queue.length === 1 && autoStart) {
+		if (this.queue.length === 1 && this.autoStart) {
 			this.execute(this.queue[0]);
 		}
 	}
