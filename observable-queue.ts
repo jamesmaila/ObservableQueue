@@ -15,7 +15,7 @@ export class ObservableQueue {
 	 * @param {*} successAction
 	 * @param {*} failureAction
 	 */
-	public add(observable: Observable<any>, successAction: any, failureAction: any): void {
+	public add(observable: Observable<any>, successAction: any, failureAction: any, autoStart = true): void {
 		this.queue.push({
 			observable: observable,
 			successAction: successAction,
@@ -23,7 +23,16 @@ export class ObservableQueue {
 		});
 
 		// If this is the only work item, execute it right away
-		if (this.queue.length === 1) {
+		if (this.queue.length === 1 && autoStart) {
+			this.execute(this.queue[0]);
+		}
+	}
+	
+	/**
+	 * Starts executing queue items.
+	 */
+	public start(): void {
+		if (this.queue.length > 0) {
 			this.execute(this.queue[0]);
 		}
 	}
