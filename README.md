@@ -10,7 +10,7 @@ Instantiate using default constructor.
   this.queue = new ObservableQueue();
  ```
  
- For explicit start, construct with autoStart flag set to true.
+ For explicit start, construct with autoStart flag set to false.
  ```
   this.queue = new ObservableQueue(autoStart: false);
  ```
