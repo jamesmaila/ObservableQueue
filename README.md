@@ -36,7 +36,7 @@ Inputs: Observable, Success action, Failure action
   let observable2 = this.http.get('www.bing.com).map(res => res.json());
   let success2 = () => { console.log('Success2!'); }
   let failure2 = () => { console.log('Error2!'); }
-  this.queue.add(observable1, success1, failure1);
+  this.queue.add(observable2, success2, failure2);
 
   this.queue.start();
 
