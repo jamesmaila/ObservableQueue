@@ -2,7 +2,7 @@
 Observable Queue data structure for angular2.  
 
 Ensures observables are executed synchronously, the next observable is subscribed to only after the previous one returns.  
-This queue structure is useful for logic require atomic operations.
+This queue structure is useful for logic requiring atomic operations.
 
 # Usage
 Instantiate using default constructor.
@@ -16,7 +16,7 @@ Instantiate using default constructor.
  ```
 Add work item using the .add() method.  
 
-For explicit start, use .start() method.
+For explicit start, use .start() method. Otherwise, observables will fire automatically as they are added.
  
 # Signatures
  ```
